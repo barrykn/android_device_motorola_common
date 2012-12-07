@@ -165,6 +165,7 @@ int main(int argc, char **argv)
 
         LOGD("MOTO_PUPD: mot_boot_mode 12m: 0\n");
         property_set("tcmd.suspend", "0");
+        property_set("sys.chargeonly.mode", "0");
     }
 
     return 0;
