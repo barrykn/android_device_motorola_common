@@ -186,8 +186,9 @@ int main()
         switch (r) {
         /* Power key */
         case EVENT_POWER_KEY_DOWN:
-            if (powerup)
-            alarm_set_relative(power_key_alarm, NULL, 1000);
+            // Disable this code because this should now happen *automatically*.
+            //if (powerup)
+            //alarm_set_relative(power_key_alarm, NULL, 1000);
             break;
         case EVENT_POWER_KEY_UP:
             alarm_cancel(power_key_alarm);
