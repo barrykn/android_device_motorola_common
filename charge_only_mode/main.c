@@ -162,7 +162,16 @@ int main()
     screen_brightness_animation_start();
 
     while (!quit) {
-        int r, delay = alarm_get_time_until_next();
+        int r, delay;
+        
+        // If voltage is high enough for us to power up...
+        if (powerup) {
+            // Then pretend we held down the power key
+            // (so we trigger the power-up reboot).
+            power_key_alarm(NULL);
+        }
+        
+        delay = alarm_get_time_until_next();
         if (delay < 1) {
             alarm_process();
             continue;
